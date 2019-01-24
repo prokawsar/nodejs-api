@@ -1,0 +1,26 @@
+{
+  "name": "crud-mern",
+  "version": "1.0.0",
+  "description": "Crud app using MERN stack",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/prokawsar/crud-mern.git"
+  },
+  "keywords": ["react", "mongoose", "node", "express"],
+  "author": "Kawsar Ahmed",
+  "license": "ISC",
+  "homepage": "https://github.com/prokawsar/crud-mern#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.4.6"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
