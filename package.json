@@ -1,7 +1,7 @@
 {
-  "name": "crud-mern",
+  "name": "e-commerce-api",
   "version": "1.0.0",
-  "description": "Crud app using MERN stack",
+  "description": "e-commerce API using MERN stack",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,12 +9,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/prokawsar/crud-mern.git"
+    "url": "git+https://github.com/prokawsar/e-commerce-api.git"
   },
   "keywords": ["react", "mongoose", "node", "express"],
   "author": "Kawsar Ahmed",
   "license": "ISC",
-  "homepage": "https://github.com/prokawsar/crud-mern#readme",
+  "homepage": "https://github.com/prokawsar/e-commerce-api#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
