@@ -11,12 +11,18 @@
     "type": "git",
     "url": "git+https://github.com/prokawsar/e-commerce-api.git"
   },
-  "keywords": ["react", "mongoose", "node", "express"],
+  "keywords": [
+    "react",
+    "mongoose",
+    "node",
+    "express"
+  ],
   "author": "Kawsar Ahmed",
   "license": "ISC",
   "homepage": "https://github.com/prokawsar/e-commerce-api#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4",
     "mongoose": "^5.4.6"
   },
