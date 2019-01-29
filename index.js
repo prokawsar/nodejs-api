@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const dotenv = require('dotenv');
 const config = require('./src/config/config')
 const middleware = require('./utils/middleware')
-const product = require('./src/routes/product'); // Imports routes for the products
+const routes = require('./src/routes/routes'); // Imports all routes
 
 // initialize our express app
 const app = express();
@@ -15,7 +15,8 @@ config.db()
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }))
 
-app.use('/products', product);
+// all routes here
+routes(app)
 
 // success request handling
 app.use(middleware.successHandler)
