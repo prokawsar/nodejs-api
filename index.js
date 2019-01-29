@@ -23,6 +23,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/products', product);
 
+// success request handling
+app.use((result, req, res, next) => {
+  res.status(result.status || 200);
+  res.json({
+    message: "SUCCESS",
+    internal_message: result.message,
+    records: result
+  })
+})
+
 // error handeling
 app.use((req, res, next) => {
   const error = new Error('Not Found')
@@ -33,9 +43,8 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   res.status(error.status || 500);
   res.json({
-    error:{
-      message: error.message
-    }
+    message: "ERROR",
+    internal_message: error.message
   })
 })
 

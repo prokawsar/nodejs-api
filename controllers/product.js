@@ -2,9 +2,9 @@ const Product = require('../models/product');
 
 //Simple version, without validation or sanitation
 exports.getAll = (req, res, next) => {
-    Product.find({}).exec(function (err, result) {
-        if (err) throw err;
-        res.send(result)
+    Product.find({}).exec(function (error, result) {
+        if (error) throw error;
+        next(result)
     })
 };
 
@@ -41,7 +41,11 @@ exports.put = (req, res, next) => {
 };
 
 exports.delete = (req, res, next) => {
-    res.status(200).json({
-        message: "Product deleted"
+
+    Product.deleteOne( { "_id" : req.params.id }, (error, result) =>{
+        if(error) next(error)
+        result.message = "Item deleted"
+        next(result)
     })
+
 };
