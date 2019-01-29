@@ -18,19 +18,26 @@ mongoose.connect(mongoDB, { useNewUrlParser: true}, err => {
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
 
-app.use((req, res, next) => {
-  bodyParser.json()
-  next()
-});
-
-app.use((req, res, next) => {
-  bodyParser.urlencoded({
-    extended: false
-  })
-  next()
-})
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }))
 
 app.use('/products', product);
+
+// error handeling
+app.use((req, res, next) => {
+  const error = new Error('Not Found')
+  error.status = 404
+  next(error)
+})
+
+app.use((error, req, res, next) => {
+  res.status(error.status || 500);
+  res.json({
+    error:{
+      message: error.message
+    }
+  })
+})
 
 app.listen(process.env.PORT, () => {
   console.log('Server is up and running on port ' + process.env.PORT);

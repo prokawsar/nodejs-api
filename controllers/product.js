@@ -1,26 +1,47 @@
 const Product = require('../models/product');
 
 //Simple version, without validation or sanitation
-exports.get_all = function (req, res) {
+exports.getAll = (req, res, next) => {
     Product.find({}).exec(function (err, result) {
         if (err) throw err;
         res.send(result)
     })
 };
 
-exports.create = function (req, res) {
+exports.getOne = (req, res, next) => {
+    res.status(200).json({
+        message: "Get one product"
+    })
+};
+
+exports.create = (req, res, next) => {
 
     let product = new Product({
-        //somewhat req.body.name is not working here
-        name: "Apple", //req.body.name
-        price: "200", //req.body.price
+        name: req.body.name,
+        price: req.body.price,
         image: null
     });
 
-    product.save(function (err) {
-        if (err) {
-            return next(err);
+    //need to save in db now
+    product.save((error) => {
+        if (error) {
+            return next(error);
         }
-        res.send('Product Created successfully')
+        res.status(200).json({
+            message: "Product Created successfully"
+        })
+
+    })
+};
+
+exports.put = (req, res, next) => {
+    res.status(200).json({
+        message: "Product updated"
+    })
+};
+
+exports.delete = (req, res, next) => {
+    res.status(200).json({
+        message: "Product deleted"
     })
 };
