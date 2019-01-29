@@ -9,8 +9,9 @@ exports.getAll = (req, res, next) => {
 };
 
 exports.getOne = (req, res, next) => {
-    res.status(200).json({
-        message: "Get one product"
+    Product.findById( {"_id" : req.params.id}, (error, result) =>{
+        if(error) next(error)
+        next(result)
     })
 };
 
@@ -23,26 +24,23 @@ exports.create = (req, res, next) => {
     });
 
     //need to save in db now
-    product.save((error) => {
-        if (error) {
-            return next(error);
-        }
-        res.status(200).json({
-            message: "Product Created successfully"
-        })
-
+    product.save((error, result) => {
+        if (error) next(error);
+        result.message = "Product Created successfully"
+        next(result)
     })
 };
 
 exports.put = (req, res, next) => {
-    res.status(200).json({
-        message: "Product updated"
+    Product.updateOne( {"_id" : req.params.id}, req.body, (error, result) =>{
+        if(error) next(error)
+        result.message = "Update successful"
+        next(result)
     })
 };
 
 exports.delete = (req, res, next) => {
-
-    Product.deleteOne( { "_id" : req.params.id }, (error, result) =>{
+    Product.deleteOne( {"_id" : req.params.id}, (error, result) =>{
         if(error) next(error)
         result.message = "Item deleted"
         next(result)
