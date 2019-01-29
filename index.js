@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
-const product = require('./routes/product'); // Imports routes for the products
+const product = require('./src/routes/product'); // Imports routes for the products
 
 // initialize our express app
 const app = express();
