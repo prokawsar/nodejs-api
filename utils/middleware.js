@@ -3,6 +3,7 @@ module.exports = {
     res.status(result.status || 200);
     res.json({
       message: "SUCCESS",
+      count: result.length,
       internal_message: result.message,
       records: result
     })
