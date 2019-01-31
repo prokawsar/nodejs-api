@@ -10,4 +10,3 @@ mongoose.connect(mongoDB, { useNewUrlParser: true}, err => {
 });
 
 mongoose.Promise = global.Promise;
-let db = mongoose.connection;

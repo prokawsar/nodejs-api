@@ -16,6 +16,7 @@ exports.getOne = (req, res, next) => {
 };
 
 exports.create = (req, res, next) => {
+    console.log(req.file)
 
     let product = new Product({
         name: req.body.name,
