@@ -27,14 +27,15 @@
     "mongoose": "^8.7.0"
   },
   "devDependencies": {
+    "@eslint/js": "^9.11.1",
     "@types/express": "^5.0.0",
     "eslint": "^9.11.1",
     "eslint-config-node": "^4.1.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.9.0",
     "nodemon": "^3.1.7",
     "prettier": "^3.3.3",
-    "typescript": "^5.6.2"
+    "typescript": "^5.6.2",
+    "typescript-eslint": "^8.7.0"
   }
 }
