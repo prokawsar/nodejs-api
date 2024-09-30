@@ -1,4 +1,4 @@
-import db from './_db'
+import db from './_db.ts'
 
 export default {
   db: () => {

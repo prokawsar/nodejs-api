@@ -1,7 +1,9 @@
+import 'ts-node/register'
+
 import express from 'express'
 import dotenv from 'dotenv'
-import config from './config/config'
-import routes from './routes/routes'
+import config from './config/config.ts'
+import routes from './routes/routes.ts'
 import bodyParser from 'body-parser'
 // import middleware from '../utils/middleware'
 

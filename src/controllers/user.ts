@@ -1,47 +1,27 @@
-// import User from '../models/user'
-// //Simple version, without validation or sanitation
-// exports.getAll = (req, res, next) => {
-//   User.find({}).exec(function (error, result) {
-//     if (error) throw error
-//     next(result)
-//   })
-// }
+import { RequestHandler } from 'express'
 
-// exports.getOne = (req, res, next) => {
-//   User.findById({ _id: req.params.id }, (error, result) => {
-//     if (error) next(error)
-//     next(result)
-//   })
-// }
+//Simple version, without validation or sanitation
+export class User {
+  getAll: RequestHandler = (req, res, next) => {
+    res.json({
+      data: [
+        { name: 'Kawsar', age: 2 },
+        { name: 'Test', age: 22 },
+        { name: 'Khalid', age: 21 },
+        { name: 'Temp', age: 23 },
+      ],
+    })
+  }
 
-// exports.create = (req, res, next) => {
-//   let user = new User({
-//     name: req.body.name,
-//     email: req.body.email,
-//     password: req.body.password,
-//     image: null,
-//   })
+  getOne: RequestHandler = (req, res, next) => {
+    res.json({
+      data: { name: 'Kawsar', age: 22 },
+    })
+  }
 
-//   //need to save in db now
-//   user.save((error, result) => {
-//     if (error) next(error)
-//     result.message = 'User Created successfully'
-//     next(result)
-//   })
-// }
+  create: RequestHandler = (req, res, next) => {}
 
-// exports.put = (req, res, next) => {
-//   User.updateOne({ _id: req.params.id }, req.body, (error, result) => {
-//     if (error) next(error)
-//     result.message = 'Update successful'
-//     next(result)
-//   })
-// }
+  put: RequestHandler = (req, res, next) => {}
 
-// exports.delete = (req, res, next) => {
-//   User.deleteOne({ _id: req.params.id }, (error, result) => {
-//     if (error) next(error)
-//     result.message = 'User deleted'
-//     next(result)
-//   })
-// }
+  delete: RequestHandler = (req, res, next) => {}
+}

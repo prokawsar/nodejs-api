@@ -1,7 +1,8 @@
 import express from 'express'
+import { User } from '../controllers/user.ts'
 
 const router = express.Router()
-const user_controller = require('../controllers/user')
+const user_controller = new User()
 
 router.get('/', user_controller.getAll)
 router.post('/', user_controller.create)
