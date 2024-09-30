@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "start": "node --watch --loader ts-node/esm src/index.ts",
+    "build": "npx tsc",
     "lint": "eslint ."
   },
   "repository": {
