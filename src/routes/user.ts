@@ -1,6 +1,5 @@
 import express from 'express'
 import { User } from '../controllers/user.ts'
-
 const router = express.Router()
 const user_controller = new User()
 

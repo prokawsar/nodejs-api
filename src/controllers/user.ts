@@ -2,7 +2,7 @@ import { RequestHandler } from 'express'
 
 //Simple version, without validation or sanitation
 export class User {
-  getAll: RequestHandler = (req, res, next) => {
+  getAll: RequestHandler = (req, res) => {
     res.json({
       data: [
         { name: 'Kawsar', age: 2 },
@@ -13,13 +13,13 @@ export class User {
     })
   }
 
-  getOne: RequestHandler = (req, res, next) => {
+  getOne: RequestHandler = (req, res) => {
     res.json({
       data: { name: 'Kawsar', age: 22 },
     })
   }
 
-  create: RequestHandler = (req, res, next) => {}
+  create: RequestHandler = (req, res) => {}
 
   put: RequestHandler = (req, res, next) => {}
 
