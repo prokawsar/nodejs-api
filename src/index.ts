@@ -21,7 +21,11 @@ app.use(middleware.logger)
 
 // all routes here
 routes(app)
-
+app.get('/', (req, res) => {
+  res.json({
+    message: 'GET request from index',
+  })
+})
 // app.use(middleware.noRouteHandler)
 
 app.listen(process.env.PORT, () => {
