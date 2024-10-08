@@ -1,10 +1,15 @@
 import { RequestHandler } from 'express'
 import users from '../data/users.json'
 
-export class User {
+export class Admin {
   getAll: RequestHandler = (req, res) => {
+
+    const usersWithoutPassword = users.map((user) => {
+      const { password, ...userWithoutPassword } = user
+      return userWithoutPassword
+    })
     res.json({
-      data: users,
+      data: usersWithoutPassword,
     })
   }
 
@@ -13,8 +18,9 @@ export class User {
     if (!user) {
       return res.status(404).json({ message: 'User not found' })
     }
+    const { password, ...userWithoutPassword } = user
     res.json({
-      data: user,
+      data: userWithoutPassword,
     })
   }
 

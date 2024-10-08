@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Kawsar",
+    "email": "kawsar@gmail.com",
+    "password": "$2a$10$8RVQ9jOlVarPWw/aUZA3DeSnY4zzwT1QQ3ub86hRlqb8NXaOFcvcW",
+    "age": 2
+  },
+  {
+    "id": 2,
+    "name": "Test",
+    "email": "test@gmail.com",
+    "password": "$2a$10$8RVQ9jOlVarPWw/aUZA3DeSnY4zzwT1QQ3ub86hRlqb8NXaOFcvcW",
+    "age": 22
+  },
+  {
+    "id": 3,
+    "name": "Khalid",
+    "email": "khalid@gmail.com",
+    "password": "$2a$10$8RVQ9jOlVarPWw/aUZA3DeSnY4zzwT1QQ3ub86hRlqb8NXaOFcvcW",
+    "age": 21
+  },
+  {
+    "id": 4,
+    "name": "Temp",
+    "email": "temp@gmail.com",
+    "password": "$2a$10$8RVQ9jOlVarPWw/aUZA3DeSnY4zzwT1QQ3ub86hRlqb8NXaOFcvcW",
+    "age": 23
+  }
+]
