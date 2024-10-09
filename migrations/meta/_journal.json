@@ -15,6 +15,13 @@
       "when": 1728457769567,
       "tag": "0001_magical_risque",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1728458288958,
+      "tag": "0002_slim_moon_knight",
+      "breakpoints": true
     }
   ]
 }
