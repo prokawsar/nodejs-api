@@ -1,7 +1,8 @@
 import { RequestHandler } from 'express'
-import users from '../data/users.json'
 import { compare, hash } from 'bcryptjs'
 import { sign } from 'jsonwebtoken'
+import { createUser, getUserByEmail } from '../queries/insert'
+import { InsertUser } from '../schemas/users'
 
 export class Auth {
   login: RequestHandler = async (req, res) => {
@@ -12,19 +13,19 @@ export class Auth {
         .json({ message: 'Email and password are required' })
     }
 
-    const user = users.find((user) => user.email === email)
+    const user = await getUserByEmail(email)
 
     if (!user) {
       return res.status(400).json({ message: 'User not found' })
     }
 
-    const isMatch = await compare(password, user.password)
+    const isMatch = await compare(password, user[0].password)
 
     if (!isMatch) {
       return res.status(400).json({ message: 'Invalid password' })
     }
     // return jwt token
-    const token = sign({ id: user.id }, process.env.JWT_SECRET as string)
+    const token = sign({ id: user[0].id }, process.env.JWT_SECRET as string)
     res.json({
       data: { token },
     })
@@ -42,24 +43,23 @@ export class Auth {
         .json({ message: 'Email and password are required' })
     }
 
-    const user = users.find((user) => user.email === email)
+    const user = await getUserByEmail(email)
     // register user
-    if (user) {
+    if (user[0]) {
       return res.status(400).json({ message: 'User already exists' })
     }
 
     const hashPassword = await hash(password, 10)
 
     const newUser = {
-      id: users.length + 1,
+      name: req.body.name,
+      age: req.body.age,
       email,
       password: hashPassword,
     }
-
-    // users.push(newUser)
-
+    await createUser(newUser as InsertUser)
     res.json({
-      data: newUser,
+      data: { message: 'User created successfully' },
     })
   }
 

@@ -2,8 +2,7 @@ import express from 'express'
 import routes from './routes/routes'
 import dotenv from 'dotenv'
 import middleware from './middleware/system'
-import neon_db from './config/neondb'
-import { usersTable } from './schemas/users'
+import { getAllUsers } from './queries/select'
 
 dotenv.config()
 
@@ -18,8 +17,7 @@ app.use(middleware.logger)
 // all routes here
 routes(app)
 app.get('/', async (req, res) => {
-  const result = await neon_db.select().from(usersTable)
-
+  const result = await getAllUsers()
   res.json({
     message: 'GET request from index',
     result,
