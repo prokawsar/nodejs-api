@@ -3,6 +3,7 @@ import routes from './routes/routes'
 import dotenv from 'dotenv'
 import middleware from './middleware/system'
 import { getAllUsers } from './queries/select'
+import { connectToMongoDB } from './config/mongodb'
 
 dotenv.config()
 
@@ -10,6 +11,7 @@ const app = express()
 
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
+connectToMongoDB()
 
 // middlewares
 app.use(middleware.logger)
